@@ -1,0 +1,56 @@
+<mat-toolbar style="background-color: #D85604;">
+    <div class="example-button-container">
+      <button  *ngIf='isAdmin' mat-mini-fab style="background-color: rgb(252, 249, 247);" (click)="back()" >
+        <mat-icon style="color: #D85604;">home</mat-icon>
+      </button>
+    </div>
+      <span class="fill-remaining-space"></span>
+      <span>Profile Management</span>
+      <span class="fill-remaining-space"></span>
+      <button  (click)="service.logout()" mat-raised-button>Logout</button>
+  </mat-toolbar>
+<div class="bg-img">
+    <div class="container col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
+        <mat-grid-list cols="3">
+            <mat-grid-tile>
+                <mat-card>
+                    <mat-card-title>Manage Emails</mat-card-title><hr>
+                    <!-- <div class="img"> -->
+                    <!-- <img mat-card-image src='../../assets/email.png'> -->
+                    <!-- </div> -->
+                    <mat-card-content>
+                        <mat-icon>email</mat-icon><br>
+                        </mat-card-content>
+                    
+                        
+
+                        <button mat-raised-button style="background-color: #D85604; color: white;" (click)="viewProfile('email')"
+                            class="btn btn-block btn-primary">E-Mail</button>
+                </mat-card>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-card>
+                    <mat-card-title>Manage Users</mat-card-title><hr>
+                    
+                    <mat-card-content>
+                        <mat-icon>supervised_user_circle</mat-icon><br><br><br>
+                        <button mat-raised-button style="background-color: #D85604; color: white;" (click)="viewProfile('user')" class="btn btn-block btn-primary">Manage
+                            Users</button>
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+            <mat-grid-tile>
+
+                <mat-card>
+                    <mat-card-title>Manage Profiles</mat-card-title><hr>
+                    
+                    <mat-card-content>
+                        <mat-icon>user</mat-icon><br>
+                    <button mat-raised-button style="background-color: #D85604; color: white;" (click)="viewProfile('employees')"
+                        class="btn btn-block btn-primary">Manage Profile</button>
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <div>
+        </div>

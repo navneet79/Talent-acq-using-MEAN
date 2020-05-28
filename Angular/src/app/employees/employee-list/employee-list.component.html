@@ -1,0 +1,122 @@
+<mat-toolbar style="background-color: #D85604;">
+  <div class="example-button-container">
+    <button  *ngIf='isAdmin' mat-mini-fab style="background-color: rgb(252, 249, 247);" (click)="back()" >
+      <mat-icon style="color: #D85604;">home</mat-icon>
+    </button>
+  </div>
+    <span class="fill-remaining-space"></span>
+    <span>Profile Management</span>
+    <span class="fill-remaining-space"></span>
+    <button mat-raised-button (click)="service.logout()">Logout</button>
+</mat-toolbar>
+<br><br><div class="search-div">
+  <div class="button-row">
+    <button style="background-color: #D85604; color: white;" *ngIf='isAdmin' mat-raised-button (click)="onCreate()">
+      <mat-icon>add</mat-icon>Create
+    </button>
+
+    <button mat-raised-button style="background-color: #D85604; color: white;" (click)="SendMail()">
+      <mat-icon>mail</mat-icon>Send E-Mail
+    </button>
+  </div>
+  <p id="double-spaced" style="line-height: 50%;"></p>
+
+
+  <mat-form-field *ngIf='!isAdvancedSearch' class="search-form-field" floatLabel="never">
+    <input matInput [(ngModel)]="searchKey" placeholder="Quick Search" autocomplete="off" (keyup)="applyFilter()">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button style="background-color: #D85604; color: white;" *ngIf="!isAdvancedSearch" mat-raised-button
+    (click)="AdvanceSearch()">
+    <mat-icon>search</mat-icon>Advanced Search
+  </button>
+
+
+  <div class="col-md-3" *ngIf='isAdvancedSearch'>
+
+    <mat-form-field class="advsearch-form-field" floatLabel="never">
+      <input matInput [(ngModel)]="searchCity" placeholder="Enter City" (keyup)="AdvanceSearch()" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="advsearch-form-field" floatLabel="never">
+      <input matInput [(ngModel)]="searchSkill" placeholder="Enter skills" (keyup)="AdvanceSearch()" autocomplete="off">
+    </mat-form-field>
+
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="isAdvancedSearch" (click)="onSearchClear()">
+      <mat-icon style="color: black;">close</mat-icon>
+    </button>
+  </div>
+
+
+
+</div>
+
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="Data" matSort>
+    <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="fullName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Full Name</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.fullName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mobile">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Mobile</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.mobile}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>City</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.city}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="skills">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Skills</mat-header-cell>
+      <mat-cell *matCellDef="let element ">{{element.skills}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="experience">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Experience</mat-header-cell>
+      <mat-cell *matCellDef="let element ">{{element.experience}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions" *ngIf="isAdmin">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button [disabled]="!isAdmin" (click)="onEdit(row)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" [disabled]="!isAdmin" (click)="onDelete(row._id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+
+    </ng-container>
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        Loading data...
+      </mat-footer-cell>
+    </ng-container>
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        No data.
+      </mat-footer-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>

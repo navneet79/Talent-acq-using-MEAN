@@ -1,0 +1,42 @@
+
+mat-card {
+    width: 250px;
+    border-radius: 20px;
+    text-align: center;
+
+    
+    
+    /* background-color: initial; */
+    height: 200px;
+    margin: 2em auto;
+    text-align: center;
+    top: 70px;
+    font-family: sans-serif;
+    color: rgb(14, 8, 27);
+  }
+
+  mat-card-title {
+      color: rgb(196, 102, 25);
+  }
+
+ 
+
+  mat-card-content {
+      top: 70px;
+      /* vertical-align: ; */
+  }
+
+ .img {
+   height: 50%;
+   width: 50%;
+ }
+
+  /* .bg-img {
+    background-image: url('../../assets/background.jpg');
+    height: 100%; 
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    
+  
+  }  */

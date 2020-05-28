@@ -1,0 +1,50 @@
+/* .bg-img {
+  background-image: url('../../assets/background.jpg');
+  height: 100%; */
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; */
+
+  /* background-size: cover;
+  position: fixed;
+  width: 100%;
+
+} */
+mat-card {
+  border-radius: 20px;
+    max-width: 300px;
+    background-color: rgba(255, 226, 193, 0.295);
+        height: 350px;
+    margin: 2em auto;
+    text-align: center;
+    top: 80px;
+    font-family: sans-serif;
+    color: rgb(20, 4, 36);
+  }
+
+.full-width-input {
+  
+    width: 80%;
+  
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+mat-card-content {
+  top: 70px;
+    /* left: 30px; */
+}
+
+   mat-form-field {
+     left:30px;
+    top: 70px;
+    display: block;
+  } 
+  
+   /* a {
+      color: blue;
+  } */
+
