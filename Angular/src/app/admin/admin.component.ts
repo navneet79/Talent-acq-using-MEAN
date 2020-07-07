@@ -8,29 +8,24 @@ import { EmployeeService } from '../shared/employee.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-loginuser : any;
-  constructor(private router :Router,private service: EmployeeService) { }
+  loginuser: any;
+  constructor(private router: Router, private service: EmployeeService) { }
 
   ngOnInit() {
-    this.loginuser =  this.service.getLoginUser();
-    if(!(this.loginuser && this.loginuser.isLoggedIn == true && this.loginuser.loginUserRole == 'admin'))
-    {
+    this.loginuser = this.service.getLoginUser();
+    if (!(this.loginuser && this.loginuser.isLoggedIn == true && this.loginuser.loginUserRole == 'admin')) {
       this.router.navigateByUrl('/login');
     }
 
   }
-  viewProfile(path)
-  {
-    if(path === 'user')
-    {
+  viewProfile(path) {
+    if (path === 'user') {
       this.router.navigateByUrl('/user');
     }
-     if(path === 'employees')
-    {
+    if (path === 'employees') {
       this.router.navigateByUrl('/employees');
     }
-    if(path === 'email')
-    {
+    if (path === 'email') {
       this.router.navigateByUrl('/email');
     }
   }

@@ -1,7 +1,9 @@
 <mat-toolbar>
   <span>{{service.userform.controls['_id'].value?"Modify User":"New User"}}</span>
   <span class="fill-remaining-space"></span>
-  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+    <mat-icon>clear</mat-icon>
+  </button>
 </mat-toolbar>
 <form [formGroup]="service.userform" class="normal-form" (submit)="onSubmit()">
   <mat-grid-list cols="2" rowHeight="300px">
@@ -20,7 +22,7 @@
           <input formControlName="password" matInput placeholder="Password">
           <mat-error>Invalid userRole.</mat-error>
         </mat-form-field>
-   
+
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
@@ -31,10 +33,10 @@
         </mat-form-field>
         <mat-form-field>
           <input formControlName="project" matInput placeholder="Assign User to Project">
-         
+
         </mat-form-field>
 
-          <div class="button-row">
+        <div class="button-row">
           <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Submit</button>
           <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
         </div>

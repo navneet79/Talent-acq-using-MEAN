@@ -23,7 +23,7 @@ export class EmailComponent implements OnInit {
     });
 
   }
-    back() {
+  back() {
     this.router.navigateByUrl('/admin');
   }
 
@@ -40,10 +40,10 @@ export class EmailComponent implements OnInit {
 
   }
 
-  onCancel(){
+  onCancel() {
     this.service.emailForm.reset();
     this.service.initializaEmailFormGroup();
     this.router.navigateByUrl('/admin');
-  } 
+  }
 
 }

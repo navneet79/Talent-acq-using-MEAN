@@ -1,7 +1,9 @@
 <mat-toolbar>
   <span>{{service.form.controls['_id'].value?"Modify Employee":"New Employee"}}</span>
   <span class="fill-remaining-space"></span>
-  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+    <mat-icon>clear</mat-icon>
+  </button>
 </mat-toolbar>
 <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
   <mat-grid-list cols="2" rowHeight="300px">
@@ -51,27 +53,24 @@
         <!-- <div class="add-bottom-padding">
           <mat-checkbox formControlName="isPermanent">Permanent Employee</mat-checkbox>
         </div> -->
-        <mat-form-field class="example-chip-list" formControlName = skills>
-    <mat-chip-list #chipList aria-label="Skill selection">
-    <mat-chip *ngFor="let skill of skills" 
-             [removable]="removable" (removed)="remove(skill)">
-      {{skill}}
-      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-    </mat-chip>
-    <input placeholder="New Skill..."
-           [matChipInputFor]="chipList"
-           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-           [matChipInputAddOnBlur]="addOnBlur"
-           (matChipInputTokenEnd)="add($event)">
-     </mat-chip-list>
-            </mat-form-field>
+        <mat-form-field class="example-chip-list" formControlName=skills>
+          <mat-chip-list #chipList aria-label="Skill selection">
+            <mat-chip *ngFor="let skill of skills" [removable]="removable" (removed)="remove(skill)">
+              {{skill}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="New Skill..." [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </mat-form-field>
         <mat-form-field>
           <input formControlName="title" matInput placeholder="Role">
-          
+
         </mat-form-field>
         <mat-form-field>
           <input formControlName="experience" matInput placeholder="Experience">
-          
+
         </mat-form-field>
         <div class="button-row">
           <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Submit</button>

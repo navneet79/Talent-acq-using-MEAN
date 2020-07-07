@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 import { HttpClient } from '@angular/common/http';
 
 import { DatePipe } from '@angular/common';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { formControlBinding } from '@angular/forms/src/directives/ng_model';
 import { identifierModuleUrl } from '@angular/compiler';
 
@@ -14,7 +14,7 @@ import { identifierModuleUrl } from '@angular/compiler';
 })
 export class EmployeeService {
 
-  constructor(private http: HttpClient, private datePipe: DatePipe,private router :Router) { }
+  constructor(private http: HttpClient, private datePipe: DatePipe, private router: Router) { }
   loginUser: any = {};
   employeeList: any;
 
@@ -23,13 +23,13 @@ export class EmployeeService {
   setLoginUser(loginUser) {
     this.loginUser = loginUser;
     localStorage.clear();
-    localStorage.setItem('loginUser',JSON.stringify(loginUser));
+    localStorage.setItem('loginUser', JSON.stringify(loginUser));
   }
 
   getLoginUser() {
-   return (JSON.parse(localStorage.getItem('loginUser')));
+    return (JSON.parse(localStorage.getItem('loginUser')));
   }
-  logout(){
+  logout() {
     localStorage.clear();
     this.router.navigateByUrl('/login');
   }
@@ -57,8 +57,7 @@ export class EmployeeService {
     return this.http.put<any>(this.baseUrl + '/profileDetails/' + id, employee);
   }
 
-  deleteEmployee(id)
-  {
+  deleteEmployee(id) {
     return this.http.delete(this.baseUrl + '/profileDetails/' + id);
   }
 
@@ -68,16 +67,15 @@ export class EmployeeService {
   updateUser(user, id) {
     return this.http.put<any>(this.baseUrl + '/userDetails/' + id, user);
   }
-  deleteUser(id)
-  {
+  deleteUser(id) {
     return this.http.delete(this.baseUrl + '/userDetails/' + id);
-     
+
   }
   getUser(userName) {
     return this.http.get(this.baseUrl + '/userDetails/' + userName);
   }
 
-  sendEmail(emailData ,to){
+  sendEmail(emailData, to) {
     emailData.to = to
     return this.http.post<any>(this.baseUrl + '/userdetails/saveemail', emailData);
 
@@ -101,12 +99,12 @@ export class EmployeeService {
     userName: new FormControl(''),
     password: new FormControl(''),
     userRole: new FormControl(''),
-    project :new FormControl(''),
-    employeeId : new FormControl('')
+    project: new FormControl(''),
+    employeeId: new FormControl('')
   });
 
   // tslint:disable-next-line:member-ordering
-    emailForm: FormGroup = new FormGroup({
+  emailForm: FormGroup = new FormGroup({
     _id: new FormControl(null),
     subject: new FormControl(''),
     body: new FormControl('')
@@ -133,7 +131,7 @@ export class EmployeeService {
       password: '',
       userRole: '',
       project: '',
-      employeeId:'',
+      employeeId: '',
     });
   }
 
@@ -169,7 +167,7 @@ export class EmployeeService {
       password: user.password,
       userRole: user.userRole,
       employeeId: user.employeeId,
-      project :user.project
+      project: user.project
     });
   }
 

@@ -23,6 +23,8 @@ import * as Material from "@angular/material";
     Material.MatDialogModule,
     Material.MatCardModule,
     Material.MatChipsModule,
+    Material.MatSidenavModule
+
 
   ],
   exports: [
@@ -43,7 +45,8 @@ import * as Material from "@angular/material";
     Material.MatPaginatorModule,
     Material.MatSortModule,
     Material.MatDialogModule,
-    Material.MatCardModule
+    Material.MatCardModule,
+    Material.MatSidenavModule
 
 
   ],

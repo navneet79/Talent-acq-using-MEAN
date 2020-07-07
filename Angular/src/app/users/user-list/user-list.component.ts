@@ -1,11 +1,11 @@
 import { UserComponent } from './../user/user.component';
 // import { MatDialogConfig } from '@angular/material';
-import { MatDialog, MatDialogConfig} from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { EmployeeService } from './../../shared/employee.service';
 // import { UserComponent} 
 import { Router } from '@angular/router';
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -27,8 +27,8 @@ export class UserListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   searchKey: string;
 
-   
-  constructor(private service: EmployeeService, private dialog: MatDialog, private router :Router) { }
+
+  constructor(private service: EmployeeService, private dialog: MatDialog, private router: Router) { }
 
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class UserListComponent implements OnInit {
     this.isAdmin = this.loginUser.loginUserRole === 'admin' ? true : false;
     this.isAdmin = true;
     this.refresh();
-    this.displayedColumns = this.isAdmin == true ? ['employeeId','userName','project','userRole', 'actions'] : ['employeeId','userName','project','userRole'];
+    this.displayedColumns = this.isAdmin == true ? ['employeeId', 'userName', 'project', 'userRole', 'actions'] : ['employeeId', 'userName', 'project', 'userRole'];
   }
 
   onSearchClear() {
@@ -71,7 +71,7 @@ export class UserListComponent implements OnInit {
       this.refresh();
     });;
   }
-  
+
   refresh() {
     this.service.getAllUsers().subscribe(
       (res) => {

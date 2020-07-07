@@ -1,25 +1,28 @@
 <div class="bg-img">
-<div class="container col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
-  
-  <mat-card>  <mat-card-title><b>SIGN-IN</b></mat-card-title>
+  <div class="container col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
 
-    <mat-card-content>
-      <form [formGroup]="loginForm" (click)="login()" class="example-form">
-        <mat-form-field class="full-width-input">
-          <input matInput class="form-control" formControlName="userName" placeholder="Username" required
-            autofocus="autofocus">
-        </mat-form-field>
+    <mat-card>
+      <mat-card-title><b>SIGN-IN</b></mat-card-title>
 
-        <mat-form-field class="full-width-input">
-          <input matInput class="form-control" type="password" formControlName="password" placeholder="Password" required>
-        </mat-form-field>
-        <br>
-      </form>
-    </mat-card-content><br/><br/><br/><br/>
-    <mat-card-footer>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (click)="login()" class="example-form">
+          <mat-form-field class="full-width-input">
+            <input matInput class="form-control" formControlName="userName" placeholder="Username" required
+              autofocus="autofocus">
+          </mat-form-field>
 
-<button mat-raised-button type="submit" (click)="login()" style="background-color: #D85604; color: white;">Login</button>
+          <mat-form-field class="full-width-input">
+            <input matInput class="form-control" type="password" formControlName="password" placeholder="Password"
+              required>
+          </mat-form-field>
+          <br>
+        </form>
+      </mat-card-content><br /><br /><br /><br />
+      <mat-card-footer>
+
+        <button mat-raised-button type="submit" (click)="login()"
+          style="background-color: #D85604; color: white;">Login</button>
       </mat-card-footer>
-  </mat-card>
+    </mat-card>
   </div>
 </div>

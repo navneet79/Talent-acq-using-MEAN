@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
         this.service.insertUser(this.service.userform.value).subscribe();
       }
       else {
-        this.service.updateUser(this.service.userform.value , this.service.userform.get('_id').value).subscribe();
+        this.service.updateUser(this.service.userform.value, this.service.userform.get('_id').value).subscribe();
         this.service.userform.reset();
       }
       this.service.initializeUserFormGroup();

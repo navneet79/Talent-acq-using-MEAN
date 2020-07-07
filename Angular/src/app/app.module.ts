@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from "./material/material.module";
-import { ReactiveFormsModule,FormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -44,8 +44,8 @@ import { EmailComponent } from './email/email.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [EmployeeService,DatePipe],
+  providers: [EmployeeService, DatePipe],
   bootstrap: [AppComponent],
-  entryComponents:[EmployeeComponent,UserComponent]
+  entryComponents: [EmployeeComponent, UserComponent]
 })
 export class AppModule { }

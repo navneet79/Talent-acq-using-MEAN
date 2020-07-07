@@ -1,15 +1,16 @@
 <mat-toolbar style="background-color: #D85604;">
   <div class="example-button-container">
-    <button  *ngIf='isAdmin' mat-mini-fab style="background-color: rgb(252, 249, 247);" (click)="back()" >
+    <button *ngIf='isAdmin' mat-mini-fab style="background-color: rgb(252, 249, 247);" (click)="back()">
       <mat-icon style="color: #D85604;">home</mat-icon>
     </button>
   </div>
-    <span class="fill-remaining-space"></span>
-    <span>Profile Management</span>
-    <span class="fill-remaining-space"></span>
-    <button mat-raised-button (click)="service.logout()">Logout</button>
+  <span class="fill-remaining-space"></span>
+  <span>Profile Management</span>
+  <span class="fill-remaining-space"></span>
+  <button mat-raised-button (click)="service.logout()">Logout</button>
 </mat-toolbar>
-<br><br><div class="search-div">
+<br><br>
+<div class="search-div">
   <div class="button-row">
     <button style="background-color: #D85604; color: white;" *ngIf='isAdmin' mat-raised-button (click)="onCreate()">
       <mat-icon>add</mat-icon>Create

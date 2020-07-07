@@ -1,14 +1,13 @@
-
 <mat-toolbar style="background-color: #D85604;">
   <div class="example-button-container">
-    <button  mat-mini-fab style="background-color: rgb(252, 249, 247);" (click)="back()" >
+    <button mat-mini-fab style="background-color: rgb(252, 249, 247);" (click)="back()">
       <mat-icon style="color: #D85604;">home</mat-icon>
     </button>
   </div>
-    <span class="fill-remaining-space"></span>
-    <span>Profile Management</span>
-    <span class="fill-remaining-space"></span>
-    <button (click)="service.logout()" mat-raised-button>Logout</button>
+  <span class="fill-remaining-space"></span>
+  <span>Profile Management</span>
+  <span class="fill-remaining-space"></span>
+  <button (click)="service.logout()" mat-raised-button>Logout</button>
 </mat-toolbar>
 <div class="container col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
   <mat-card>

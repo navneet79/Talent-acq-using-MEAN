@@ -17,7 +17,7 @@ export class EmployeeListComponent implements OnInit {
 
   constructor(private service: EmployeeService,
     private dialog: MatDialog,
-    private router :Router
+    private router: Router
   ) { }
   isAdmin: any;
   loginUser: any;
@@ -39,7 +39,7 @@ export class EmployeeListComponent implements OnInit {
 
 
   ngOnInit() {
-    
+
     this.isAdvancedSearch = false;
     this.loginUser = this.service.getLoginUser();
     this.service.getEmails().subscribe((email) => {
@@ -53,7 +53,7 @@ export class EmployeeListComponent implements OnInit {
         this.isAdmin = false;
       }
     }
-    this.refresh(); 
+    this.refresh();
 
   }
   isAllSelected() {
@@ -68,10 +68,9 @@ export class EmployeeListComponent implements OnInit {
   AdvanceSearch() {
     if (this.isAdvancedSearch === true) {
       this.tempList = this.listData;
-      if(this.searchCity != "" || this.searchSkill != "")
-      {
-        this.displayedColumns = this.isAdmin == true ? ['select', 'fullName', 'email' , 'city', 'skills','experience', 'actions'] : ['select', 'fullName', 'email', 'city', 'skills','experience'];
-        
+      if (this.searchCity != "" || this.searchSkill != "") {
+        this.displayedColumns = this.isAdmin == true ? ['select', 'fullName', 'email', 'city', 'skills', 'experience', 'actions'] : ['select', 'fullName', 'email', 'city', 'skills', 'experience'];
+
       }
       this.tempList = this.tempList.filter(e =>
         e.city.toLowerCase().includes(this.searchCity.trim().toLowerCase()) &&
