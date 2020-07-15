@@ -1,0 +1,46 @@
+
+<div *ngIf = "!IsLogout">
+<mat-nav-list>
+    <div>
+    <a mat-list-item [routerLink]="'/employees'"> Employees <span class="fill-remaining-space"></span> <i class="fa fa-male fa-2x" aria-hidden="true"></i></a>
+   
+    <mat-divider></mat-divider>
+    </div>
+    <div>
+        <a mat-list-item [routerLink]="'/email'"> Emails </a>
+        <mat-divider></mat-divider>
+    </div>
+    <div>
+        <a mat-list-item [routerLink]="'/roles'"> Roles </a>
+        <mat-divider></mat-divider>
+    </div>
+    <div>
+        <a mat-list-item [routerLink]="'/user'"> Users  <span class="fill-remaining-space"></span> <i class="fa fa-user-o fa-2x" aria-hidden="true"></i> </a>
+        <mat-divider></mat-divider>
+    </div>
+ 
+</mat-nav-list>
+</div>
+<!-- 
+<div *ngIf = "IsLogout">
+    <mat-nav-list>
+        <div>
+        <a mat-list-item [routerLink]="'/employees'"> Employees <span class="fill-remaining-space"></span> <i class="fa fa-male fa-2x" aria-hidden="true"></i></a>
+       
+        <mat-divider></mat-divider>
+        </div>
+        <div>
+            <a mat-list-item [routerLink]="'/email'"> Emails </a>
+            <mat-divider></mat-divider>
+        </div>
+        <div>
+            <a mat-list-item [routerLink]="'/roles'"> Roles </a>
+            <mat-divider></mat-divider>
+        </div>
+        <div>
+            <a mat-list-item [routerLink]="'/user'"> Users  <span class="fill-remaining-space"></span> <i class="fa fa-user-o fa-2x" aria-hidden="true"></i> </a>
+            <mat-divider></mat-divider>
+        </div>
+     
+    </mat-nav-list>
+    </div> -->
